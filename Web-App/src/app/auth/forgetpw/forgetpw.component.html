@@ -1,0 +1,33 @@
+<br><br><br><br>
+<div class="col d-flex justify-content-center">
+    <div class="card border-dark mb-3 " style="max-width: 30rem;height: 50vh;width: 500px; background-color: rgba(245, 245, 245, 0.685) ;">
+        <div class="card-header  border-dark text-dark" style="text-align: center;  background-color: rgba(245, 245, 245, 0.459)">
+            <h2>Password Reset</h2>
+        </div>
+        <div class="card-body text-dark">
+            <form (ngSubmit)="onsubmit()"  class="ui form" [formGroup]="forgetForm">
+                <app-input
+                  inputType="text"
+                  label="Verify Code"
+                  [control]="forgetForm.get('verifycode')"
+                >
+                </app-input>
+
+                <app-input  
+                inputType="password"
+                label="New Password"
+                [control]="forgetForm.get('password')"
+                >
+                </app-input>
+
+                <div style="text-align: center;">
+                    <br>
+                    <button class="btn btn-primary" [disabled]= !forgetForm.valid>
+                      Submit
+                    </button>
+                </div>
+                
+            </form>    
+        </div>
+    </div>
+</div>

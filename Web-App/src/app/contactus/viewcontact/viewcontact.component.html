@@ -1,0 +1,54 @@
+<ng-container *ngIf = "signin">
+    <app-navs></app-navs>
+</ng-container>    
+<div class="container-fluid">
+<div class="row">
+    <ng-container *ngIf = "signin">
+    <div class="col-md-2" id="vertical">    
+        <app-horizontal></app-horizontal>       
+    </div>
+    </ng-container> 
+    <div class="col-md-10" [ngClass] ="{'col-md-12': !signin}">
+        <div class="class1">
+        <p>Get In Touch with Us
+        <img height="150px" width="100px"  src = "assets/images/leter.jpeg"/></p>
+        
+        <p>We are always ready to help you!</p>
+        </div>
+        <div class="class2">
+            <p>Please contact us directly by phone, email or through the contact from below.</p>
+        </div> 
+        <br><br>
+        <div class="col class3" >
+            <div class="card border-dark">
+                <div class="card-body" >
+                  <h1 style="text-align:center;" class= "class8"><b>Send us a Message</b></h1>
+                  <input type="text" placeholder="Name" class="class5">
+                  <br><br>
+                  <input type="text" placeholder="Email Address" class="class5">
+                  <br><br>
+                  <input type="text" placeholder="Subject" class="class5">
+                  <br><br>
+                  <input type="text" placeholder="Your Message" class="class5">
+                  <br><br>
+                  <div style="text-align: end;">
+                  <button type="button" class="class7">Submit</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="col class4" >
+            <img height="50px" width="50px" src = "assets/images/phonn.jpeg"/> <label class="class6">0112353128</label> 
+            <hr>
+            <img height="50px" width="50px" src = "assets/images/aatt.jpeg"/>  <label class="class6">skin@gmail.com</label>
+            <hr>
+            <img height="50px" width="50px" src = "assets/images/email.jpeg"/><label class="class6">0776337961</label> 
+            <hr>
+            <img height="50px" width="50px" src = "assets/images/wweb.jpg"/> <label class="class6"> www.skin.com</label>
+            <hr>
+        </div>
+    </div>
+    
+</div>
+</div>

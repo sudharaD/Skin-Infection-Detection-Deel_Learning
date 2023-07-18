@@ -1,0 +1,111 @@
+<div>
+    <div class="col d-flex justify-content-center" >
+        <div class="card border-dark mb-3 " style="max-width: 40rem; height:88vh ;width: 500px; background-color: rgba(245, 245, 245, 0.685) ;">
+            <div class="card-header  border-dark text-dark" style="text-align: center;  background-color: rgba(245, 245, 245, 0.459)">
+                <h2>Register As Student</h2>
+            </div>
+            <div class="card-body text-dark" >
+                <form (ngSubmit)="submitstudent()" [formGroup] = "studentForm" class="ui form">
+                    <app-input
+                      inputType="text"
+                      label="Name"
+                      [control]="studentForm.get('name')"
+                    >
+                    </app-input>
+
+                    <label class="mr-sm-2" ><b>University</b></label>
+                    <select class="custom-select mr-sm-2" formControlName="university">
+                      <option value="Moratuwa" >Moratuwa</option>
+                      <option value="Peradeniya" >Peradeniya</option>
+                      <option value="Ruhuna" >Ruhuna</option>
+                    </select>
+                    <br><br> 
+
+                    <div class="row" >
+                        <div class="col-md-3">
+                            <label><b>Gender</b></label>
+                            <div class="form-check">
+                                <input formControlName="gender"  class="form-check-input" type="radio"  id="gridRadios1" value="Male">
+                                <label class="form-check-label" for="gridRadios1">
+                                  Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input formControlName="gender"  class="form-check-input" type="radio"  id="gridRadios2" value="Female">
+                                <label class="form-check-label" for="gridRadios2">
+                                  Female
+                                </label>
+                            </div>
+    
+                        </div>
+                        <div class="col">
+                            <app-input
+                            inputType="text"
+                            label="Country"
+                            [control]="studentForm.get('country')"
+                            >
+                            </app-input>
+                        </div>
+                    </div>
+    
+    
+                    <app-input
+                      inputType="email"
+                      label="Email"
+                      [control]="studentForm.get('email')"
+                    >
+                    </app-input>
+    
+                    <div class="row">
+                        <div class="col">
+                            <app-input
+                            inputType="password"
+                            label="Password"
+                            [control]="studentForm.get('password')"
+                            >
+                            </app-input>
+                        </div>
+                        <div class="col">
+                            <app-input
+                            inputType="password"
+                            label="Confirm Password"
+                            [control]="studentForm.get('confirmpassword')"
+                            >
+                            </app-input>
+                        </div>
+                    </div>
+
+                    <div *ngIf = "studentForm.get('password').touched &&
+                    studentForm.get('confirmpassword').touched && studentForm.errors"
+                    class="text-danger"
+                    >
+                    <p *ngIf = "studentForm.errors.passworddontmatch">
+                        Password and Password Confirmation must match
+                    </p>  
+
+                    </div> 
+    
+                    <div class="row"> 
+                        <div class="col" >
+                            <div class="form-check">
+                                <input (change)="agree()"   class="form-check-input" type="checkbox" formControlName="agree" >
+                                <label class="form-check-label" for="gridRadios1" >
+                                  Accept Terms & conditions
+                                </label>
+                            </div>   
+                        </div>        
+                        <div class="col">
+                            <div style="text-align: center;">
+                                <button class="btn btn-primary" [disabled] = !studentForm.valid>
+                                  Register
+                                </button>
+                            </div>  
+                        </div>
+                    </div>
+
+                </form>
+                    <p class="text-danger">{{msg}}</p>
+            </div>
+        </div>
+    </div>
+    </div>  

@@ -1,0 +1,38 @@
+<ng-container *ngIf = "signin">
+    <app-navs></app-navs>
+</ng-container>
+<div class="container-fluid">
+<div class="row">
+    <ng-container *ngIf = "signin">
+        <div class="col-md-2" id="vertical">    
+            <app-horizontal></app-horizontal>       
+        </div>
+    </ng-container> 
+    <div class="col-md-10" [ngClass] ="{'col-md-12': !signin}">
+    
+        <div class="col class3">
+           <br><br><br><br><br><br><br><br><br><br>
+           <div class="card text-white mb-3 class5" >
+            <div class="col class6">
+                    <br>
+            </div>
+            <div class="col class7">
+               <br>
+        <label><h1><b>ABOUT US</b></h1></label> 
+            <br>
+            <label><h2>Our Mission is to diagnose Skin Infections
+                in less time and with greater accuracy..</h2></label><br><br><br>
+        </div>  
+        </div>
+        </div>
+
+     
+
+    
+    
+        <div class="col class1">
+        <img height="700px" width="700px"  src = "assets/images/team3.jpg"/>
+        </div>
+
+        
+</div>  

@@ -1,0 +1,175 @@
+   <div class="col d-flex justify-content-center">
+        <div class="card border-dark mb-3 " style="max-width: 30rem;height: 85vh;width: 500px; background-color: rgba(245, 245, 245, 0.685) ;">
+            <div class="card-header  border-dark text-dark" style="text-align: center;  background-color: rgba(245, 245, 245, 0.459)">
+                <h2>Register As Doctor</h2>
+            </div>
+            
+            <div class="card-body text-dark">
+                <form (ngSubmit)="onsubmitdoc()"  class="ui form" [formGroup]="doctorForm">
+                    <div *ngIf = !shownext>
+                    <app-input
+                      inputType="text"
+                      label="Name"
+                      [control]="doctorForm.get('name')"
+                    >
+                    </app-input>
+    
+                    <app-input
+                    inputType="text"
+                    label="email"
+                    [control]="doctorForm.get('email')"
+                    >
+                    </app-input>
+                    
+
+                    <div class="row" >
+                        <div class="col-md-3">
+                            <label><b>Gender</b></label>
+                            <div class="form-check">
+                                <input formControlName="gender"  class="form-check-input" type="radio"  id="gridRadios1" value="Male">
+                                <label class="form-check-label" for="gridRadios1">
+                                  Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input formControlName="gender"  class="form-check-input" type="radio"  id="gridRadios2" value="Female">
+                                <label class="form-check-label" for="gridRadios2">
+                                  Female
+                                </label>
+                            </div>
+    
+                        </div>
+                        <div class="col">
+                            <app-input
+                            inputType="text"
+                            label="Country"
+                            [control]="doctorForm.get('country')"
+                            >
+                            </app-input>
+                        </div>
+                                
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <app-input
+                            inputType="password"
+                            label="Password"
+                            [control]="doctorForm.get('password')"
+                            >
+                            </app-input>
+                        </div>
+                        <div class="col">
+                            <app-input
+                            inputType="password"
+                            label="Confirm Password"
+                            [control]="doctorForm.get('confirmpassword')"
+                            >
+                            </app-input>
+                        </div>
+                    </div>
+                    <div *ngIf = "doctorForm.get('password').touched &&
+                    doctorForm.get('confirmpassword').touched && doctorForm.errors"
+                    class="text-danger"
+                    >
+                    <p *ngIf = "doctorForm.errors.passworddontmatch">
+                        Password and Password Confirmation must match
+                    </p>
+                    </div>
+
+                    <app-input
+                    inputType="text"
+                    label="Specialization"
+                    [control]="doctorForm.get('specialization')"
+                    >
+                    </app-input>
+
+                    <div style="text-align: center;">
+                        <button class="btn btn-primary" (click)="onclick()">
+                          Next
+                        </button>
+                    </div> 
+                </div> 
+                <ng-container *ngIf = shownext>
+                    <app-input
+                        inputType="text"
+                        label="Registration Number"
+                        [control]="doctorForm.get('regnum')"
+                        >
+                    </app-input>
+
+                    <app-input 
+                        inputType="text"
+                        label="Hospital"
+                        [control]="doctorForm.get('hospital')"
+                        >
+                    </app-input>
+
+                    <div class="form-check">
+                        <input (change)="like()" formControlName="like"   class="form-check-input" type="checkbox" >
+                        <label class="form-check-label" for="gridRadios1">
+                          I like to register as a dermatologist
+                        </label> <br>
+
+                        <input (change)="agree()"   class="form-check-input" type="checkbox" formControlName="agree" >
+                        <label class="form-check-label" for="gridRadios1" >
+                            Accept Terms & conditions
+                        </label>
+                    </div>
+
+                <div *ngIf = likereg >
+                    <br>
+                    <label class="mr-sm-2" ><b>Region</b></label>
+                    <select class="custom-select mr-sm-2" formControlName="region">
+                      <option value="Ampara" >Ampara</option>
+                      <option value="Anuradhapura" >Anuradhapura</option>
+                      <option value="Badulla" >Badulla</option>
+                      <option value="Batticaloa" >Batticaloa</option>
+                      <option value="Colombo" >Colombo</option>
+                      <option value="Galle" >Galle</option>
+                      <option value="Gampaha" >Gampaha</option>
+                      <option value="Hambantota" >Hambantota</option>
+                      <option value="Jaffna" >Jaffna</option>
+                      <option value="Kalutara" >Kalutara</option>
+                      <option value="Kandy" >Kandy</option>
+                      <option value="Kegalle" >Kegalle</option>
+                      <option value="Kilinochchi" >Kilinochchi</option>
+                      <option value="Kurunegala" >Kurunegala</option>
+                      <option value="Mannar" >Mannar</option>
+                      <option value="Matale" >Matale</option>
+                      <option value="Matara" >Matara</option>
+                      <option value="Monaragala" >Monaragala</option>
+                      <option value="Mullaitivu" >Mullaitivu</option>
+                      <option value="Nuwara Eliya" >Nuwara Eliya</option>
+                      <option value="Polonnaruwa" >Polonnaruwa</option>
+                      <option value="Puttalam" >Puttalam</option>
+                      <option value="Trincomalee" >Trincomalee</option>
+                      <option value="Vavuniya" >Vavuniya</option>
+                    </select>
+                    <br><br> 
+                </div>
+                <br>
+                <div class="row" >
+                    <div class="col">
+                        <div style="text-align: center;">
+                            <button class="btn btn-primary" (click)="clickback()">
+                              Back
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col">  
+                        <div style="text-align: center;">
+                            <button class="btn btn-primary" [disabled] = !doctorForm.valid>
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </div>            
+                </ng-container>      
+                </form> 
+                <p class="text-danger">{{msg}}</p>   
+            </div>
+        </div>
+    </div>
+
+

@@ -1,0 +1,34 @@
+<div class="col d-flex justify-content-center">
+    <div class="card border-dark mb-3 " style="max-width: 30rem;height: 500px;width: 500px; background-color: rgba(245, 245, 245, 0.685) ;">
+        <div class="card-header  border-dark text-dark" style="text-align: center;  background-color: rgba(245, 245, 245, 0.459)">
+            <h2>Login</h2>
+        </div>
+        <div class="card-body text-dark">
+            <form (ngSubmit)="onsubmit()" class="ui form" [formGroup]="authForm">
+                <app-input
+                  inputType="text"
+                  label="Username"
+                  [control]="authForm.get('email')"
+                > 
+                </app-input>
+
+                <app-input
+                inputType="password"
+                label="Password"
+                [control]="authForm.get('password')"
+                >
+                </app-input>
+
+                <div style="text-align: center;">
+                    <br>
+                    <button class="btn btn-primary" [disabled]= !authForm.valid>
+                      Submit
+                    </button>
+                </div>
+
+                <h4 class="class4" (click)="forgetpw()">forget password?</h4>
+            </form>
+            <p class="text-danger">{{msg}}</p>    
+        </div>
+    </div>
+</div>

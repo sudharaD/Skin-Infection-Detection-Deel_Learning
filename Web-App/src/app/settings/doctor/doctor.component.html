@@ -1,0 +1,77 @@
+<div class="modal fade" id="edit1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Change Position</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <ng-container *ngIf="student">
+            <form [formGroup]="doctForm">
+                <app-input
+                inputType="text"
+                label="Registration Number"
+                [control]="doctForm.get('regnum')"
+                > 
+                </app-input>
+                <app-input
+                inputType="text"
+                label="Hospital"
+                [control]="doctForm.get('hospital')"
+                > 
+                </app-input>
+                <app-input
+                inputType="text"
+                label="specialization"
+                [control]="doctForm.get('specialization')"
+                > 
+                </app-input>
+            </form>
+        </ng-container>
+
+        <ng-container *ngIf="doctor">
+            <form [formGroup]="dermoForm">
+                <label class="mr-sm-2" ><b>Region</b></label>
+                    <select class="custom-select mr-sm-2" formControlName="region">
+                      <option value="Ampara" >Ampara</option>
+                      <option value="Anuradhapura" >Anuradhapura</option>
+                      <option value="Badulla" >Badulla</option>
+                      <option value="Batticaloa" >Batticaloa</option>
+                      <option value="Colombo" >Colombo</option>
+                      <option value="Galle" >Galle</option>
+                      <option value="Gampaha" >Gampaha</option>
+                      <option value="Hambantota" >Hambantota</option>
+                      <option value="Jaffna" >Jaffna</option>
+                      <option value="Kalutara" >Kalutara</option>
+                      <option value="Kandy" >Kandy</option>
+                      <option value="Kegalle" >Kegalle</option>
+                      <option value="Kilinochchi" >Kilinochchi</option>
+                      <option value="Kurunegala" >Kurunegala</option>
+                      <option value="Mannar" >Mannar</option>
+                      <option value="Matale" >Matale</option>
+                      <option value="Matara" >Matara</option>
+                      <option value="Monaragala" >Monaragala</option>
+                      <option value="Mullaitivu" >Mullaitivu</option>
+                      <option value="Nuwara Eliya" >Nuwara Eliya</option>
+                      <option value="Polonnaruwa" >Polonnaruwa</option>
+                      <option value="Puttalam" >Puttalam</option>
+                      <option value="Trincomalee" >Trincomalee</option>
+                      <option value="Vavuniya" >Vavuniya</option>
+                    </select>
+
+                <app-input
+                inputType="text"
+                label="Hospital"
+                [control]="dermoForm.get('hospital')"
+                > 
+                </app-input>
+            </form>
+        </ng-container>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)= "changeposition()" [disabled] = "!doctForm.valid && !dermoForm.valid" >Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

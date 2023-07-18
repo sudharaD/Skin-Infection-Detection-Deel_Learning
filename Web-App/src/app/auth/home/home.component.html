@@ -1,0 +1,18 @@
+<div class="bg">
+<div class="wrapper">
+  <ul>
+    <li><a routerLink="/signin">LOGIN</a></li>
+    <li><a routerLink="/">REGISTER</a> 
+      <ul>
+        <li><a routerLink="/signupdoctor" (click)="getvalue()">DOCTOR</a></li>
+        <li><a routerLink="/signupstudent" (click)="getvalue1()">STUDENT</a>
+      </ul>
+  </ul>
+</div>
+<div>
+  <br><br><br>
+  <router-outlet></router-outlet>
+</div>
+</div>
+            
+

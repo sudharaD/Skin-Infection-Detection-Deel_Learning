@@ -1,0 +1,23 @@
+<app-navs></app-navs>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" id="vertical">
+            <app-horizontal></app-horizontal>
+        </div>
+        <div class="col-md-10" id="abc">
+            <img [src]="url" height="300" width="300" class="rounded mx-auto d-block"><br>
+            <input type="file" class="rounded mx-auto d-block" (change)="onfileselected($event)"><br>
+
+            <div class="button">
+                <div class="d-grid gap-2 col-6 mx-auto ">
+                    <button class="btn col-12" style="background-color: rgb(223, 199, 151);" type="button" (click)="onupload()">PREDICT</button>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto ">
+                    <br><h1>{{disease | json}}</h1>
+                </div>                
+            </div>
+        </div>
+        
+</div>
+</div>
+
